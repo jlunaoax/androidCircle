@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">androicCircle</string>
+    <string name="button_press_add">Add!</string>
+    <string name="button_press_minus">Reduce!</string>
+</resources>
