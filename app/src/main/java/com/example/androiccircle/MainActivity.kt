@@ -1,5 +1,6 @@
 package com.example.androiccircle
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnCounter: Button
     private lateinit var btnDiscount: Button
+    private lateinit var btnNextActivity: Button
 
     private var contador: Int = 0
 
@@ -28,19 +30,29 @@ class MainActivity : AppCompatActivity() {
         text2 = findViewById(R.id.textView2)
         btnCounter = findViewById(R.id.buttonContador)
         btnDiscount = findViewById(R.id.buttonDiscount)
+        btnNextActivity = findViewById(R.id.buttonNextActivity)
     }
 
     private fun changeText() {
-        if (contador > 10) {
+        /*if (contador > 10) {
             text1.setText("El contador es mayor a 10 : => $contador")
         } else {
             text1.setText("Contador : => $contador")
-        }
+        }*/
 
-        if (contador > 0) {
-            btnDiscount.isEnabled = true
-        } else {
-            btnDiscount.isEnabled = false
+        btnDiscount.isEnabled = contador > 0
+        btnNextActivity.isEnabled = contador > 10
+
+        when {
+            contador > 10 -> {
+                text1.setText("El contador es mayor a 10 : => $contador")
+            }
+            contador > 5 -> {
+                text1.setText("El contador es mayor a 5 : => $contador")
+            }
+            else -> {
+                text1.setText("Contador : => $contador")
+            }
         }
     }
 
@@ -52,6 +64,16 @@ class MainActivity : AppCompatActivity() {
         btnDiscount.setOnClickListener {
             onClickListenerEventDiscount()
         }
+
+        btnNextActivity.setOnClickListener {
+            goToNextActivity()
+        }
+    }
+
+    private fun goToNextActivity() {
+        val intent = Intent(this, MainActivity2::class.java)
+        intent.putExtra("contador", contador)
+        startActivity(intent)
     }
 
     private fun onClickListenerEventContador() {
