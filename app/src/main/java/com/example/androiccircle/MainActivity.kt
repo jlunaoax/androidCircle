@@ -5,13 +5,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var text1: TextView
-    private lateinit var text2: TextView
+    private lateinit var textCreateAccount: TextView
+    private lateinit var textForgotUsrPwd: TextView
 
-    private lateinit var btnCounter: Button
-    private lateinit var btnDiscount: Button
+    private lateinit var textUsuario: TextInputEditText
+    private lateinit var textPassword: TextInputEditText
+
+    // private lateinit var btnCounter: Button
+    // private lateinit var btnDiscount: Button
     private lateinit var btnNextActivity: Button
 
     private var contador: Int = 0
@@ -21,29 +25,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViews()
-        changeText()
+        validaUsuario()
         setActionListener()
     }
 
     private fun findViews() {
-        text1 = findViewById(R.id.textView1)
-        text2 = findViewById(R.id.textView2)
-        btnCounter = findViewById(R.id.buttonContador)
-        btnDiscount = findViewById(R.id.buttonDiscount)
+        textCreateAccount = findViewById(R.id.textView1)
+        textForgotUsrPwd = findViewById(R.id.textView2)
+
+        textUsuario = findViewById(R.id.textInputUsuario)
+        textPassword = findViewById(R.id.textInputPassword)
+        // btnCounter = findViewById(R.id.buttonContador)
+        // btnDiscount = findViewById(R.id.buttonDiscount)
         btnNextActivity = findViewById(R.id.buttonNextActivity)
     }
 
-    private fun changeText() {
-        /*if (contador > 10) {
-            text1.setText("El contador es mayor a 10 : => $contador")
-        } else {
-            text1.setText("Contador : => $contador")
-        }*/
-
-        btnDiscount.isEnabled = contador > 0
-        btnNextActivity.isEnabled = contador > 10
-
-        when {
+    private fun validaUsuario() {
+        // btnDiscount.isEnabled = contador > 0
+        // btnNextActivity.isEnabled = contador > 10
+        btnNextActivity.isEnabled = textUsuario.length() > 0 && textPassword.length() > 0
+        /*when {
             contador > 10 -> {
                 text1.setText("El contador es mayor a 10 : => $contador")
             }
@@ -53,17 +54,17 @@ class MainActivity : AppCompatActivity() {
             else -> {
                 text1.setText("Contador : => $contador")
             }
-        }
+        }*/
     }
 
     private fun setActionListener() {
-        btnCounter.setOnClickListener {
+       /* btnCounter.setOnClickListener {
             onClickListenerEventContador()
         }
 
         btnDiscount.setOnClickListener {
             onClickListenerEventDiscount()
-        }
+        }*/
 
         btnNextActivity.setOnClickListener {
             goToNextActivity()
@@ -76,9 +77,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun onClickListenerEventContador() {
+
+    /*private fun onClickListenerEventContador() {
         contador++
-        changeText()
+        validaUsuario()
         // Toast.makeText(this, "hello, bounjour", Toast.LENGTH_SHORT).show()
     }
 
@@ -86,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         if (contador > 0) {
             contador--
         }
-        changeText()
+        validaUsuario()
         // Toast.makeText(this, "hello, bounjour", Toast.LENGTH_SHORT).show()
-    }
+    }*/
 }

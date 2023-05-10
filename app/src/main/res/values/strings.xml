@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">androicCircle</string>
-    <string name="button_press_add">Add!</string>
-    <string name="button_press_minus">Reduce!</string>
-    <string name="button_press_nextactivity">Go to next</string>
+    <string name="button_press_nextactivity">Iniciar sesion</string>
+    <string name="se_te_olvido_usuario_password">Se te olvido usuario/password</string>
+    <string name="inicio_de_sesion_o_crear_cuenta">Inicio de sesion o crear cuenta</string>
+    <string name="password">Password</string>
+    <string name="usuario">Usuario</string>
+    <string name="e_commerce">E-Commerce</string>
+    <string name="imagen_principal">Imagen principal</string>
 </resources>
