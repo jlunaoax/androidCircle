@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     // private lateinit var btnCounter: Button
     // private lateinit var btnDiscount: Button
     private lateinit var btnNextActivity: Button
+    private lateinit var imageWelcomeShortCut: ImageView
 
     private var contador: Int = 0
 
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         // btnCounter = findViewById(R.id.buttonContador)
         // btnDiscount = findViewById(R.id.buttonDiscount)
         btnNextActivity = findViewById(R.id.buttonNextActivity)
+        imageWelcomeShortCut = findViewById(R.id.image_welcome)
     }
 
     private fun validaUsuario() {
@@ -79,6 +82,11 @@ class MainActivity : AppCompatActivity() {
             onClickListenerEventDiscount()
         }*/
 
+        imageWelcomeShortCut.setOnLongClickListener() {
+            goToNextActivity()
+            true
+        }
+
         btnNextActivity.setOnClickListener {
             Toast.makeText(this, "Working...", Toast.LENGTH_SHORT).show()
             if (validEmailButton() && validPasswordButton()) {
@@ -112,7 +120,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToNextActivity() {
         val intent = Intent(this, MainActivity2::class.java)
-        intent.putExtra("contador", contador)
         startActivity(intent)
     }
 
