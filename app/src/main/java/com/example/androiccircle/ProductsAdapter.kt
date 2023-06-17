@@ -3,6 +3,7 @@ package com.example.androiccircle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -32,6 +33,15 @@ class ProductsAdapter(private val products: List<Product>) :
             imageView.setImageResource(product.image)
             nombreTextView.text = product.name
             precioTextView.text = product.price
+
+            val buttonItem: Button = itemView.findViewById(R.id.buttonItem)
+
+            buttonItem.setOnClickListener {
+                val context = itemView.context
+                if (context is MainActivity2) {
+                    context.mostrarDellateProducto(product)
+                }
+            }
         }
     }
 }

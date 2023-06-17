@@ -39,6 +39,7 @@
             android:textSize="14sp" />
 
         <Button
+            android:id="@+id/buttonItem"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Detalle"
