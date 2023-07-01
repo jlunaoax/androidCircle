@@ -35,11 +35,18 @@ class ProductsAdapter(private val products: List<Product>) :
             precioTextView.text = product.price
 
             val buttonItem: Button = itemView.findViewById(R.id.buttonItem)
-
             buttonItem.setOnClickListener {
                 val context = itemView.context
                 if (context is MainActivity2) {
                     context.mostrarDellateProducto(product)
+                }
+            }
+
+            val buttonAddItem: Button = itemView.findViewById(R.id.buttonAdd)
+            buttonAddItem.setOnClickListener {
+                val context = itemView.context
+                if (context is MainActivity2) {
+                    context.addProduct(product)
                 }
             }
         }

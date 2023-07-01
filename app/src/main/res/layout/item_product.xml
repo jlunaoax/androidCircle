@@ -45,5 +45,12 @@
             android:text="Detalle"
             />
 
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Add to cart"
+            />
+
     </LinearLayout>
 </LinearLayout>
